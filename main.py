@@ -154,9 +154,10 @@ if __name__ == '__main__':
     current_course = getCurrentCourse(session, access_token)
 
     # 看视屏签到
-    if datetime.datetime.now().weekday == '1':
+    if datetime.datetime.today().weekday() == 0:
         time.sleep(5)
         getJoin(session,access_token,current_course,nid,cardNo)
+        print("看视频完成!")
     else:
         print("今天不是周一，不看视频")
 
