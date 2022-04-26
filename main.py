@@ -186,10 +186,10 @@ class QCZJ_Youth_Learning:
 
 if __name__ == '__main__':
 
-    nid = "" # 在这里输入你的团组织编号，形如N003************，请使用抓包软件获取
-    cardNo = ""# 在这里输入你打卡时用的昵称，可能是学号，可能是姓名
-    openid = "" #靠自己抓包
-    nickname = "" #一般是微信账户名
+    nid = "N0019000100340001" # 在这里输入你的团组织编号，形如N003************，请使用抓包软件获取
+    cardNo = "3210105944"# 在这里输入你打卡时用的昵称，可能是学号，可能是姓名
+    openid = "oO-a2t7bWFlrnGmx4Ln23dflRQQI" #靠自己抓包
+    nickname = "Asuka" #一般是微信账户名
 
     qndxx = QCZJ_Youth_Learning(nid,cardNo,openid,nickname)
     qndxx.main()
