@@ -107,8 +107,11 @@ class YouthLearning:
               f"accessToken={self.access_token}" \
               f"&pageSize=5&pageNum=1&desc=createTime"
         res_json = self.session.get(url, headers=headers, timeout=3).json()
+        idx = 0
+        while len(res_json["result"]["list"][idx]["list"]) == 0:
+            idx += 1
         if res_json["status"] == 200:
-            return res_json["result"]["list"][0]["id"]
+            return res_json["result"]["list"][idx]["id"]
         else:
             return ""
 

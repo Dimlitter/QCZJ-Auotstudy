@@ -85,9 +85,12 @@ class QCZJ_Youth_Learning:
         url = f"https://qczj.h5yunban.com/qczj-youth-learning/cgi-bin/user-api/course/records/v2?accessToken="+access_token+"&pageSize=5&pageNum=1&desc=createTime"
         res = self.session.get(url, headers=headers)
         res_json = json.loads(res.text)
+        idx = 0
+        while len(res_json["result"]["list"][idx]["list"]) == 0:
+            idx += 1
         if res_json["status"] == 200:
-            print("获取到最新课程记录:", res_json["result"]["list"][0]["id"])
-            return res_json["result"]["list"][0]["id"]
+            print("获取到最新课程记录:", res_json["result"]["list"][idx]["id"])
+            return res_json["result"]["list"][idx]["id"]
         else:
             print("获取最新课程记录失败！退出程序")
             print(res.text)
